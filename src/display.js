@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ButtonValue from './buttonValue';
 
 class Display extends React.Component {
 	constructor(props){
@@ -9,6 +9,7 @@ class Display extends React.Component {
 	}
 
 	getCols() {
+		console.log("INSIDE GET COLUMNS");
 		var cols = [];
 		for (let key in this.store.getState().columns) {
 			cols.push(<th> {this.store.getState().columns[key]} </th>)
@@ -25,6 +26,9 @@ class Display extends React.Component {
 					<tbody>
 						<tr>
 							{this.getCols()}
+						</tr>
+						<tr>
+							<ButtonValue id = "00" value = {500} store={this.store}/>
 						</tr>
 					</tbody>
 				</table>

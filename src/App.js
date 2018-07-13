@@ -8,15 +8,17 @@ import reducer from './reducer';
 
 
 class App extends Component {
-  store = createStore(reducer);
-  render() {
-    return (
-      <div className="App">
-        <Inputs store={this.store}/>
-        <Display store={this.store}/>
-      </div>
-    );
+  constructor(props){
+    super(props);
+  }
+
+   render() {
+      return (
+        <div className="App">
+            <Inputs store={this.props.store}/>
+            <Display store={this.props.store}/>s
+        </div>
+      );
   }
 }
-
 export default App;

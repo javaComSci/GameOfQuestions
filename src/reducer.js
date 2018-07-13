@@ -18,7 +18,15 @@ export default (state = defaultState, action) => {
 	console.log(action.columns);
 	const type = action.type;
 	switch(type) {
-		case 'inputs': return Object.assign({}, state, {columns: reassign(state.columns,action.columns)}, {questions: reassign(state.questions,action.questions)}, {answers: reassign(state.answers,action.answers)});
+		case 'inputs':
+		let newObj = {
+						columns: reassign(state.columns,action.columns),
+						questions: reassign(state.questions,action.questions),
+						answers: reassign(state.answers,action.answers)
+					}
+					   console.log("THIS IS A NEW OBJ");
+					   console.log(newObj);
+					   return newObj;
 		default: return state;
 	}
 }

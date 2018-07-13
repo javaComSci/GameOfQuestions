@@ -6,3 +6,11 @@ export const submitInfo = (columns, questions, answers) => {
 		answers
 	}
 }
+
+export const chooseValue = (id, value) => {
+	return {
+		type: 'values',
+		id,
+		value
+	}
+}
