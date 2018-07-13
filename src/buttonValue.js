@@ -15,6 +15,7 @@ class ButtonValue extends React.Component{
 	constructor(props){
 		super(props);
 		this.getQuestion = this.getQuestion.bind(this);
+		this.needToRenderQuestion = false;
 	}
 
 	getQuestion(e) {
@@ -22,12 +23,17 @@ class ButtonValue extends React.Component{
 		console.log("value");
 		e.target.style = this.clickedButtonStyle;
 		this.props.store.dispatch(chooseValue(e.target.id, this.props.value));
-		
+		this.needToRenderQuestion = true;
 	}
 	render(){
+		let q;
+		if(this.needToRenderQuestion){
+			q = <div> QUESTION </div>
+		}
 		return (
 			<div>
 				<button onClick={this.getQuestion} style={this.buttonStyle} id={this.props.id}> {this.props.value} </button>
+				{q}
 			</div>
 		)
 	}
