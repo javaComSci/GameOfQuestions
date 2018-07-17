@@ -1,5 +1,5 @@
 import React from 'react';
-import { addScore } from './actions';
+import { addScore, setCurrQuestion } from './actions';
 
 class AskQuestion extends React.Component {
 
@@ -12,6 +12,16 @@ class AskQuestion extends React.Component {
 		border:"none",
 		textAlign: "center",
 		borderRadius:"3px",
+	}
+
+	wrongStyle = {
+		fontSize: "15px",
+		color: "red",
+	}
+
+	rightStyle = {
+		fontSize: "15px",
+		color: "green"
 	}
 
 	constructor(props){
@@ -49,11 +59,11 @@ class AskQuestion extends React.Component {
 	render(){
 		let renderCorrect = "";
 		if(this.state.correct === true){
-			renderCorrect = <div> YOU GOT IT RIGHT! </div>
+			renderCorrect = <div style={this.rightStyle}> YOU GOT IT RIGHT! </div>
 		} else if (this.state.correct === false){
-			renderCorrect = <div> SORRY, WRONG ANSWER! </div>
+			renderCorrect = <div style={this.wrongStyle}> SORRY, WRONG ANSWER! </div>
 		} else {
-			renderCorrect = <div> </div>
+			renderCorrect = <div></div>
 		}
 		return (
 			<div>
@@ -61,8 +71,7 @@ class AskQuestion extends React.Component {
 				{this.props.question}
 				<br/>
 				<input onChange={this.getUserAnswer} id="in"/>
-				<input type="submit" onClick={this.getAnswerOnSubmit} style={this.buttonStyle}/>
-				{this.props.answer}
+				<input type="submit" onClick={this.getAnswerOnSubmit} style={this.buttonStyle}/> 
 				{renderCorrect}
 			</div>
 		)

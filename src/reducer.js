@@ -4,7 +4,8 @@ const defaultState = {
 	answers:  {'00': 'A', '01': 'A', '02': 'A', '03': 'A', '10': 'A', '11': 'A', '12': 'A', '13': 'A', '20': 'A', '21': 'A', '22': 'A', '23': 'A', '30': 'A', '31': 'A', '32': 'A', '33': 'A'},
 	scores: 0,
 	renderInputs: true,
-};
+	clicked: [],
+}
 
 const reassign = (prev, next) => {
 	let mod = {};
@@ -17,18 +18,25 @@ const reassign = (prev, next) => {
 export default (state = defaultState, action) => {
 	console.log("IN REDUCER");
 	console.log(action);
-	console.log("Rendering inputs is " + state.renderInputs);
-	let score;
-	if(action.scores){
-		if(action.scores.charAt(0) === '0'){
-			score = 500;
-		} else if(action.scores.charAt(0) === '1'){
-			score = 400;
-		} else if(action.scores.charAt(0) === '2'){
-			score = 300;
-		}  else if(action.scores.charAt(0) === '3'){
-			score = 200;
+	let score = 0;
+	if(action.type == 'scores'){
+		console.log(state.clicked);
+		console.log("FIND THIS " + state.clicked.find(() => action.scores))
+		if(action.scores && !state.clicked.find(() => action.scores)){
+			if(action.scores.charAt(0) === '0'){
+				score = 500;
+			} else if(action.scores.charAt(0) === '1'){
+				score = 400;
+			} else if(action.scores.charAt(0) === '2'){
+				score = 300;
+			}  else if(action.scores.charAt(0) === '3'){
+				score = 200;
+			}else {
+				score = 0;
+			}
+			return Object.assign({}, state, {scores: state.scores + score}, {clicked: state.clicked.concat([action.scores])});
 		}
+		return state;
 	}
 	const type = action.type;
 	switch(type) {
@@ -38,10 +46,10 @@ export default (state = defaultState, action) => {
 							questions: reassign(state.questions,action.questions),
 							answers: reassign(state.answers,action.answers),
 							scores: 0,
-							renderinputs: !state.renderInputs
+							renderinputs: !state.renderInputs,
+							clicked: []
 						}
 					   return newObj;
-		case 'scores': return Object.assign({}, state, {scores: state.scores + score})
 		default: return state;
 	}
 }

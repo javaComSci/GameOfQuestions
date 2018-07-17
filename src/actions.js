@@ -7,17 +7,16 @@ export const submitInfo = (columns, questions, answers) => {
 	}
 }
 
-export const chooseValue = (id, value) => {
-	return {
-		type: 'values',
-		id,
-		value
-	}
-}
-
 export const addScore = (scores) => {
 	return {
 		type: 'scores',
 		scores
+	}
+}
+
+export const setCurrQuestion = (currQuestion) => {
+	return {
+		type: 'currQuestion',
+		currQuestion
 	}
 }

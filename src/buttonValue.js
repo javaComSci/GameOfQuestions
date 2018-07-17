@@ -19,6 +19,7 @@ class ButtonValue extends React.Component{
 
 	questionHandler(e){
 		this.props.getQuestion(e);
+		document.getElementById(this.props.id).disabled = true;
 	}
 
 	render(){

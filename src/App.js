@@ -13,7 +13,6 @@ class App extends Component {
   }
 
    render() {
-    console.log("rendering this in app "+ this.props.store.getState().renderInputs);
     if (this.props.store.getState().renderInputs === true){
       return (
         <div className="App">

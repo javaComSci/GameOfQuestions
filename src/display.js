@@ -1,7 +1,7 @@
 import React from 'react';
 import ButtonValue from './buttonValue';
 import AskQuestion from './askQuestion.js'
-import { chooseValue } from './actions';
+import { setCurrQuestion } from './actions';
 import Score from './score'
 
 class Display extends React.Component {
@@ -26,7 +26,7 @@ class Display extends React.Component {
 	getQuestion(e) {
 		console.log("INSIDE GET QUESTION");
 		e.target.style = this.clickedButtonStyle;
-		this.props.store.dispatch(chooseValue(e.target.id, this.props.value));
+		this.props.store.dispatch(setCurrQuestion(e.target.id));
 		this.question = this.props.store.getState().questions[e.target.id];
 		this.answer = this.props.store.getState().answers[e.target.id];
 		this.id = e.target.id;
@@ -77,7 +77,7 @@ class Display extends React.Component {
 						</tr>
 					</tbody>
 				</table>
-				<AskQuestion store={this.store} id={this.id}question={this.question} answer={this.answer}/>
+				<AskQuestion store={this.store} id={this.id} question={this.question} answer={this.answer}/>
 				<Score store={this.store}/>
 			</div>
 		);
