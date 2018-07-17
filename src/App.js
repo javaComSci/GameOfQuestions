@@ -13,12 +13,20 @@ class App extends Component {
   }
 
    render() {
+    console.log("rendering this in app "+ this.props.store.getState().renderInputs);
+    if (this.props.store.getState().renderInputs === true){
       return (
         <div className="App">
             <Inputs store={this.props.store}/>
-            <Display store={this.props.store}/>s
         </div>
       );
+    }else{
+      return (
+        <div className="App">
+            <Display store={this.props.store}/>
+        </div>
+      );
+    }
   }
 }
 export default App;

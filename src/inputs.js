@@ -36,7 +36,6 @@ class Inputs extends React.Component {
 	}
 
 	submitHandler = () => {
-		console.log("Handling submit");
 		this.props.store.dispatch(submitInfo(this.state.columns, this.state.questions, this.state.answers));
 	}
 

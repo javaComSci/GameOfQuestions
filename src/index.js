@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { createStore } from 'redux';
-import registerServiceWorker from './registerServiceWorker';
 import reducer from './reducer';
 
 let store = createStore(reducer);
@@ -23,4 +22,3 @@ store.subscribe(() => {
 
 store.subscribe(render); //must always call back
 render();
-console.log("INITAL STATE " + store);

@@ -3,7 +3,6 @@ import React from 'react';
 export default class QuestionAnswer extends React.Component{
 	constructor(props){
 		super(props);
-		console.log("INSIDE QUESTION ANSWER ")
 	}
 
 	inputQuestionHandler = (e) => {

@@ -14,3 +14,10 @@ export const chooseValue = (id, value) => {
 		value
 	}
 }
+
+export const addScore = (scores) => {
+	return {
+		type: 'scores',
+		scores
+	}
+}
