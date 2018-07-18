@@ -11,7 +11,8 @@ class Display extends React.Component {
 		columnWidth: "20%",
 		marginLeft: "auto",
 		marginRight: "auto",
-		backgroundColor: "#ddd"
+		backgroundColor: "#ddd",
+		border: "5px solid blue"
 	};
 	constructor(props){
 		super(props);
