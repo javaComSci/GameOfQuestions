@@ -18,9 +18,14 @@ class Display extends React.Component {
 		super(props);
 
 		this.store = this.props.store;
-		this.question = "";
-		this.answer = "";
-		this.id = "";
+		this.state = {
+			question: "",
+			answer: "",
+			id: ""
+		}
+		// this.question = "";
+		// this.answer = "";
+		// this.id = "";
 		this.getQuestion = this.getQuestion.bind(this);
 	}
 
@@ -28,9 +33,14 @@ class Display extends React.Component {
 		console.log("INSIDE GET QUESTION");
 		e.target.style = this.clickedButtonStyle;
 		this.props.store.dispatch(setCurrQuestion(e.target.id));
-		this.question = this.props.store.getState().questions[e.target.id];
-		this.answer = this.props.store.getState().answers[e.target.id];
-		this.id = e.target.id;
+		this.setState({
+			question: this.props.store.getState().questions[e.target.id],
+			answer: this.props.store.getState().answers[e.target.id],
+			id: e.target.id,
+		});
+		// this.question = this.props.store.getState().questions[e.target.id];
+		// this.answer = this.props.store.getState().answers[e.target.id];
+		// this.id = e.target.id;
 	}
 
 	getCols() {
@@ -78,7 +88,7 @@ class Display extends React.Component {
 						</tr>
 					</tbody>
 				</table>
-				<AskQuestion store={this.store} id={this.id} question={this.question} answer={this.answer}/>
+				<AskQuestion store={this.store} id={this.state.id} question={this.state.question} answer={this.state.answer}/>
 				<Score store={this.store}/>
 			</div>
 		);

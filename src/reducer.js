@@ -21,8 +21,9 @@ export default (state = defaultState, action) => {
 	let score = 0;
 	if(action.type == 'scores'){
 		console.log(state.clicked);
-		console.log("FIND THIS " + state.clicked.find(() => action.scores))
-		if(action.scores && !state.clicked.find(() => action.scores)){
+		console.log("SCORE ID IS " + action.scores);
+		console.log("FIND THIS " + state.clicked.find((e) => e == action.scores))
+		if(action.scores && !state.clicked.find((e) => e == action.scores)){
 			if(action.scores.charAt(0) === '0'){
 				score = 500;
 			} else if(action.scores.charAt(0) === '1'){
