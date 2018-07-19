@@ -7,10 +7,11 @@ export const submitInfo = (columns, questions, answers) => {
 	}
 }
 
-export const addScore = (scores) => {
+export const addScore = (scores, correct) => {
 	return {
 		type: 'scores',
-		scores
+		scores,
+		correct
 	}
 }
 

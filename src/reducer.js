@@ -23,7 +23,7 @@ export default (state = defaultState, action) => {
 		console.log(state.clicked);
 		console.log("SCORE ID IS " + action.scores);
 		console.log("FIND THIS " + state.clicked.find((e) => e == action.scores))
-		if(action.scores && !state.clicked.find((e) => e == action.scores)){
+		if(action.scores && !state.clicked.find((e) => e == action.scores) && action.correct === true){
 			if(action.scores.charAt(0) === '0'){
 				score = 500;
 			} else if(action.scores.charAt(0) === '1'){
@@ -37,7 +37,7 @@ export default (state = defaultState, action) => {
 			}
 			return Object.assign({}, state, {scores: state.scores + score}, {clicked: state.clicked.concat([action.scores])});
 		}
-		return state;
+		return Object.assign({}, state, {clicked: state.clicked.concat([action.scores])});
 	}
 	const type = action.type;
 	switch(type) {

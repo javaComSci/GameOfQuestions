@@ -53,12 +53,13 @@ class AskQuestion extends React.Component {
 
 	getAnswerOnSubmit() {
 		if (this.state.answer == this.props.answer){
-			this.props.store.dispatch(addScore(this.props.id));
+			this.props.store.dispatch(addScore(this.props.id, true));
 			this.setState({
 				correct:true,
 				question: this.props.question
 			});
 		}else {
+			this.props.store.dispatch(addScore(this.props.id, false))
 			this.setState({
 				correct:false,
 				question:this.props.question
