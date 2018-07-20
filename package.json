@@ -12,11 +12,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "mocha",
     "eject": "react-scripts eject",
-    "test": "mocha"
+    "acceptance-test": "node_modules/.bin/cypress run",
+    "cypress-open": "node_modules/.bin/cypress open"
   },
   "devDependencies": {
+    "cypress": "^3.0.2",
     "mocha": "^5.2.0"
   }
 }
