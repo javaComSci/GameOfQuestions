@@ -30,13 +30,13 @@ export default class QuestionAnswer extends React.Component{
 			<div style={{border: "3px solid blue", padding: "5px", backgroundColor: "#e6e6f2"}}>
 				<form>
 					<div style ={{fontWeight:"bold"}}> Value: {this.getValue()} </div>
-					<label>
+					<label id={this.props.id}>
 					Question:
 						<br/>
 						<input type = "text" onChange={this.inputQuestionHandler}/>
 					</label>
 					<br/>
-					<label>
+					<label id={this.props.id}>
 					Answer:
 						<br/>    
 						<input type = "text" onChange={this.inputAnswerHandler}/>

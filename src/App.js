@@ -15,13 +15,13 @@ class App extends Component {
    render() {
     if (this.props.store.getState().renderInputs === true){
       return (
-        <div className="App">
+        <div className="App" id="Inputs">
             <Inputs store={this.props.store}/>
         </div>
       );
     }else{
       return (
-        <div className="App">
+        <div className="App" id="Display">
             <Display store={this.props.store}/>
         </div>
       );

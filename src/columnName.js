@@ -14,7 +14,7 @@ export default class ColumnName extends React.Component{
 	render() {
 		return (
 			<div  style = {{border: "5px solid blue"}}>
-				<input type="text" placeHolder="CATEGORY" onChange={this.columnHandler}/>
+				<input type="text" placeHolder="CATEGORY" onChange={this.columnHandler} id={this.props.id} className={this.props.id}/>
 			</div>
 		)
 	}
